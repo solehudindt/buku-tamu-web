@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load bootstrap4 %}
+
+    {% comment %} {# Load CSS and JavaScript #} {% endcomment %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    
+    {% comment %} {# Display django.contrib.messages as Bootstrap alerts #} {% endcomment %}
+    {% bootstrap_messages %}
+
+    <title>
+      {% block title %}
+          
+      {% endblock title %}
+
+    </title>
+  </head>
+  <body>
+      {% block content %}
+          
+      {% endblock content %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  </body>
+</html>
