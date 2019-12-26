@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+	{% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+
+{% block title %}
+    Kunjungan
+{% endblock title %}
+
+{% block content %}
+  
+  <div class="container" style="padding-top:30px;">
+
+  <form method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% comment %} <label for="{{ form.id_for_label }}">{{ form.label }}</label> {% endcomment %}
+
+ 
+    <button type="submit" class="submit-btn btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
