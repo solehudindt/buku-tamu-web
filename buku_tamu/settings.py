@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kunjungan',
-    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -65,8 +64,12 @@ WSGI_APPLICATION = 'buku_tamu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'buku_tamu',
+        'USER': 'root',
+        'PASSWORD': 'ge3k',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 

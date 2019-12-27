@@ -1,28 +1,33 @@
 {% extends 'base.html' %}
 
-	{% load bootstrap4 %}
-
-    {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-    
-    {# Display django.contrib.messages as Bootstrap alerts #}
-    {% bootstrap_messages %}
-
 {% block title %}
     Kunjungan
 {% endblock title %}
 
 {% block content %}
+
+    <form class="border border-bold p-5" method="post">
+      {% csrf_token %}      
+       
+       <div class="form-row mb-4">
+        <div class="col">
+          <div class="form-group">
+            {{ form.nama.label_tag }}
+            {{ form.nama }}
+          </div>
+        </div>
+        <div class="col">
+          <div class="md-form">
+            {{ form.angkatan.label_tag }}
+            {{ form.angkatan }}
+          </div>
+        </div>
+      </div>
+      {{ form.keterangan.label_tag }}
+      {{ form.keterangan }}
   
-  <div class="container" style="padding-top:30px;">
+       <button class="btn btn-info btn-block my-4" type="submit">Submit</button>
 
-  <form method="post" enctype="multipart/form-data" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    {% comment %} <label for="{{ form.id_for_label }}">{{ form.label }}</label> {% endcomment %}
-
- 
-    <button type="submit" class="submit-btn btn btn-primary">Submit</button>
-  </form>
+    </form>
+  </div>
 {% endblock %}

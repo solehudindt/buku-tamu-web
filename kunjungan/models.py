@@ -15,13 +15,12 @@ a = year_choices()
 
 # Create your models here.
 class Pengunjung(models.Model):
-    nama		    = models.CharField(('nama'), max_length=35)
+    nama		    = models.CharField(max_length=35)
     angkatan		= models.IntegerField(
-                            ('angkatan'),
                             validators=[MinValueValidator(2010), 
                             max_value_current_year],
                             choices=a)
-    keterangan		= models.TextField(('keterangan'))
+    keterangan		= models.TextField()
     
     def __str__(self):
         return "{} - {}".format(self.nama, self.angkatan)
