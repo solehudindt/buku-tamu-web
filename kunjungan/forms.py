@@ -20,5 +20,6 @@ class FormPengunjung(forms.ModelForm):
             'nama': forms.TextInput(attrs={'class':'form-control',
                                             'placeholder':'Masukan nama lengkap'}),
             'angkatan': forms.Select(choices=year_choices(), attrs={'class':'form-control'}),
-            'keterangan': forms.Textarea(attrs={'class':'form-control form-control-sm'}),
+            'keterangan': forms.Textarea(attrs={'class':'form-control form-control-sm',
+                                                'placeholder':'Masukan alasan atau keterangan'}),
         }

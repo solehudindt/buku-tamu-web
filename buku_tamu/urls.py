@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('kunjungan/', include('kunjungan.urls')),
+    path('barang/', include('barang.urls')),
 ]
