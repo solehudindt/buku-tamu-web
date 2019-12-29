@@ -7,26 +7,21 @@
 {% block content %}
 
     <form class="border border-bold p-5" method="post">
-      {% csrf_token %}      
-       
-       <div class="form-row mb-4">
-        <div class="col">
+      {% csrf_token %}
+
+      <div class="md-form mb-4">
+            {{ form.nama.label_tag }}
+            {{ form.barang }}
+          </div>     
+      
           <div class="form-group">
-            {% comment %} {{ form.nama.label_tag }}
-            {{ form.nama }} {% endcomment %}
+            {{ form.nama.label_tag }}
+            {{ form.nama }}
           </div>
-        </div>
-        <div class="col">
-          <div class="md-form">
-            {% comment %} {{ form.angkatan.label_tag }}
-            {{ form.angkatan }} {% endcomment %}
-          </div>
-        </div>
+
+      <button class="btn btn-info btn-block my-4" type="submit">Submit</button>
+
       </div>
-      {% comment %} {{ form.keterangan.label_tag }}
-      {{ form.keterangan }} {% endcomment %}
-  
-       <button class="btn btn-info btn-block my-4" type="submit">Submit</button>
 
     </form>
   </div>

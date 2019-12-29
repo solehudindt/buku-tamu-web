@@ -1,6 +1,27 @@
 from django.shortcuts import render
+from .forms import FormPeminjaman
+from .models import Peminjaman
 
 # Create your views here.
 
+def viewPinjam(request):
+    list_pinjam = Peminjaman.objects.all()
+
+    return render(request, 'barang/dashboard_brg.html', {'pinjaman':list_pinjam})
+
 def peminjaman(request):
-    return render(request, 'barang/form_pinjam.html', {'header':'Peminjaman'})
+    if request.method == 'POST':
+        form = FormPeminjaman(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Success')
+
+            return redirect('peminjaman:peminjaman')
+        else:
+            messages.error(request, 'Error')
+    else:
+        form = FormPeminjaman()
+    return render(request, 'barang/form_pinjam.html', {'header':'Peminjaman', 'form':form})
+
+def penitipan(request):
+    return render(request, 'barang/form_nitip.html', {'header':'Penitipan'})

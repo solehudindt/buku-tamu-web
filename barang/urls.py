@@ -4,6 +4,7 @@ from . import views
 
 app_name = 'barang'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('', views.viewPinjam, name='index'),
     path('peminjaman', views.peminjaman, name='peminjaman'),
+    path('penitipan', views.penitipan, name='penitipan'),
 ]

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    barang
+{% endblock title %}
+
+{% block content %}
+
+   {% for pinjam in pinjaman %}
+        {{ pinjam.nama }}
+        <br>
+        {{ pinjam.barang }}
+        </br>
+        {{ pinjam.tanggal }}
+   {% endfor %}
+
+{% endblock content %}
