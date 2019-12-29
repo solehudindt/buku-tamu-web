@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import FormPeminjaman
 from .models import Peminjaman
+from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -16,11 +18,12 @@ def peminjaman(request):
             form.save()
             messages.success(request, 'Success')
 
-            return redirect('peminjaman:peminjaman')
+            return redirect('peminjaman:index')
         else:
             messages.error(request, 'Error')
     else:
         form = FormPeminjaman()
+        print("Bukan POST")
     return render(request, 'barang/form_pinjam.html', {'header':'Peminjaman', 'form':form})
 
 def penitipan(request):

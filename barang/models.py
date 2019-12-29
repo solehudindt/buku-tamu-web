@@ -7,4 +7,5 @@ class Peminjaman(models.Model):
     tanggal = models.DateField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return "{} - {}".format(self.nama, self.tanggal)
+        return "{} - {}".format(self.nama, self.barang)
+    

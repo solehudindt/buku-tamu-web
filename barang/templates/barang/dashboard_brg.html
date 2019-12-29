@@ -5,13 +5,39 @@
 {% endblock title %}
 
 {% block content %}
-
-   {% for pinjam in pinjaman %}
-        {{ pinjam.nama }}
-        <br>
-        {{ pinjam.barang }}
-        </br>
-        {{ pinjam.tanggal }}
-   {% endfor %}
+<div class="row">
+    <div class="col">
+    <table class="table">
+        <thead>
+        Peminjaman
+        </thead>
+        <tbody>
+        {% for pinjam in pinjaman %}
+        <tr>
+            <td>{{ pinjam.nama }}</td>
+            <td>{{ pinjam.barang }}</td>
+            <td>{{ pinjam.tanggal }}</td>
+            <td><button type="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="col">
+    <table class="table">
+        <thead>
+        Penitipan
+        </thead>
+        <tbody>
+        {% for pinjam in pinjaman %}
+        <tr>
+            <td>{{ pinjam.nama }}</td>
+            <td>{{ pinjam.barang }}</td>
+            <td>{{ pinjam.tanggal }}</td>
+            <td><button type="submit"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
 
 {% endblock content %}

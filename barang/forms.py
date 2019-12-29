@@ -2,9 +2,9 @@ from django import forms
 from .models import Peminjaman
 
 class FormPeminjaman(forms.ModelForm):
-    class Meta:
+    class Meta():
         model = Peminjaman
-        fields = ('nama', 'barang')
+        fields = ('nama','barang')
 
         labels = {
             'nama': 'Nama Peminjam',
@@ -12,7 +12,10 @@ class FormPeminjaman(forms.ModelForm):
         }
         
         widgets = {
-            # 'tanggal': forms.DateInput(format=('dd/mm/yyy'), attrs={'class':'form-control', 'placeholder':'Pilih tanggal', 'type':'date'}),
-            'nama': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Masukan nama anda'}),
-            'barang': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Masukan nama barang'}),
+            # 'tanggal': forms.DateInput(attrs={'class':'form-control',
+            #                                     'placeholder':'Pilih tanggal',
+            #                                     'type':'date'
+            #                                 }),
+            'nama': forms.TextInput(attrs={'class':'form-control'}),
+            'barang': forms.TextInput(attrs={'class':'form-control'}),
         }
