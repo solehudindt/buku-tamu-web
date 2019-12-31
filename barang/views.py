@@ -11,6 +11,16 @@ def viewPinjam(request):
 
     return render(request, 'barang/dashboard_brg.html', {'pinjaman':list_pinjam})
 
+def pengembalian(request, barang_id):
+    
+    Peminjaman.objects.filter(id=barang_id).update(kembali=True)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('barang:index')
+    else:
+        return redirect('barang:index')
+
 def peminjaman(request):
     if request.method == 'POST':
         form = FormPeminjaman(request.POST)
@@ -18,7 +28,7 @@ def peminjaman(request):
             form.save()
             messages.success(request, 'Success')
 
-            return redirect('peminjaman:index')
+            return redirect('barang:index')
         else:
             messages.error(request, 'Error')
     else:

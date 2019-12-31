@@ -12,10 +12,6 @@ class FormPeminjaman(forms.ModelForm):
         }
         
         widgets = {
-            # 'tanggal': forms.DateInput(attrs={'class':'form-control',
-            #                                     'placeholder':'Pilih tanggal',
-            #                                     'type':'date'
-            #                                 }),
             'nama': forms.TextInput(attrs={'class':'form-control'}),
             'barang': forms.TextInput(attrs={'class':'form-control'}),
         }

@@ -14,10 +14,14 @@
         <tbody>
         {% for pinjam in pinjaman %}
         <tr>
+            {% if pinjam.kembali == False %}
             <td>{{ pinjam.nama }}</td>
             <td>{{ pinjam.barang }}</td>
             <td>{{ pinjam.tanggal }}</td>
-            <td><button type="submit"></td>
+            <td><a class="btn-sm btn-warning" href="{% url 'barang:pengembalian' pinjam.id %}">
+                Kembalikan
+            </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>
