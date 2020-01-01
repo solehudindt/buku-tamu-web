@@ -11,10 +11,21 @@
       {% csrf_token %}
 
       <div class="md-form mb-4">
-            {{ form.nama.label_tag }}
-            {{ form.nama }}
-          </div>     
-      
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              {{ form.nama.label_tag }}
+              {{ form.nama }}
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              {{ form.angkatan.label_tag }}
+              {{ form.angkatan }}
+            </div>
+          </div>
+        </div>
+
           <div class="form-group">
             {{ form.barang.label_tag }}
             {{ form.barang }}
@@ -25,6 +36,12 @@
             {{ form.tanggal }}
           </div>
 
+          <div class="form-group">
+            {{ form.jenis.label_tag }}
+            {{ form.jenis }}
+          </div>
+
+      </div>
       <button class="btn btn-info btn-block my-4" type="submit">Submit</button>
 
       </div>

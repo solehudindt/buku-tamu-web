@@ -4,8 +4,7 @@ from . import views
 
 app_name = 'barang'
 urlpatterns = [
-    path('', views.viewPinjam, name='index'),
-    path('peminjaman', views.peminjaman, name='peminjaman'),
-    path('penitipan', views.penitipan, name='penitipan'),
-    path('actionUrl/<int:barang_id>', views.pengembalian, name='pengembalian'),
+    path('', views.viewBarang, name='index'),
+    path('adm_brg', views.titipPinjam, name='titipPinjam'),
+    path('actionUrl/<int:barang_id>', views.pungutPengembalian, name='pgtPengembalian'),
 ]

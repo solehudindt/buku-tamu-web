@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Peminjaman
+from .models import AdmBarang
 # Register your models here.
 
-admin.site.register(Peminjaman)
+admin.site.register(AdmBarang)

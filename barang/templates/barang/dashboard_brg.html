@@ -12,15 +12,17 @@
         Peminjaman
         </thead>
         <tbody>
-        {% for pinjam in pinjaman %}
+        {% for barang in barangs %}
         <tr>
-            {% if pinjam.kembali == False %}
-            <td>{{ pinjam.nama }}</td>
-            <td>{{ pinjam.barang }}</td>
-            <td>{{ pinjam.tanggal }}</td>
-            <td><a class="btn-sm btn-warning" href="{% url 'barang:pengembalian' pinjam.id %}">
+            {% if barang.at_camp == False %}
+                {% if barang.jenis == 'peminjaman' %}
+                <td>{{ barang.nama }}</td>
+                <td>{{ barang.barang }}</td>
+                <td>{{ barang.tanggal }}</td>
+                <td><a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
                 Kembalikan
             </td>
+                {% endif %}
             {% endif %}
         </tr>
         {% endfor %}
@@ -32,12 +34,18 @@
         Penitipan
         </thead>
         <tbody>
-        {% for pinjam in pinjaman %}
+        {% for barang in barangs %}
         <tr>
-            <td>{{ pinjam.nama }}</td>
-            <td>{{ pinjam.barang }}</td>
-            <td>{{ pinjam.tanggal }}</td>
-            <td><button type="submit"></td>
+            {% if barang.at_camp == False %}
+                {% if barang.jenis == 'penitipan' %}
+                <td>{{ barang.nama }}</td>
+                <td>{{ barang.barang }}</td>
+                <td>{{ barang.tanggal }}</td>
+                <td><a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
+                Ambil
+            </td>
+                {% endif %}
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

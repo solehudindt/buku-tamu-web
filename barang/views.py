@@ -1,29 +1,24 @@
 from django.shortcuts import render, redirect
-from .forms import FormPeminjaman
-from .models import Peminjaman
+from .forms import FormBrg
+from .models import AdmBarang
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
-def viewPinjam(request):
-    list_pinjam = Peminjaman.objects.all()
+def viewBarang(request):
+    list_brg = AdmBarang.objects.all()
 
-    return render(request, 'barang/dashboard_brg.html', {'pinjaman':list_pinjam})
+    return render(request, 'barang/dashboard_brg.html', {'barangs':list_brg})
 
-def pengembalian(request, barang_id):
+def pungutPengembalian(request, barang_id):
+    AdmBarang.objects.filter(id=barang_id).update(at_camp=True)
     
-    Peminjaman.objects.filter(id=barang_id).update(kembali=True)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('barang:index')
-    else:
-        return redirect('barang:index')
+    return redirect('barang:index')
 
-def peminjaman(request):
+def titipPinjam(request):
     if request.method == 'POST':
-        form = FormPeminjaman(request.POST)
+        form = FormBrg(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Success')
@@ -32,9 +27,6 @@ def peminjaman(request):
         else:
             messages.error(request, 'Error')
     else:
-        form = FormPeminjaman()
+        form = FormBrg()
         print("Bukan POST")
-    return render(request, 'barang/form_pinjam.html', {'header':'Peminjaman', 'form':form})
-
-def penitipan(request):
-    return render(request, 'barang/form_nitip.html', {'header':'Penitipan'})
+    return render(request, 'barang/form_brg.html', {'header':'Peminjaman / Penitipan', 'form':form})
