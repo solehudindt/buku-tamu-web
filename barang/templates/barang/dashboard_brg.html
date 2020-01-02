@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block content %}
-<div class="row">
+<div class="row border border-bold p-5">
     <div class="col">
         <h3>
             Peminjaman
@@ -21,7 +21,7 @@
                     <td>{{ barang.barang }}</td>
                     <td>{{ barang.tanggal }}</td>
                     <td>
-                        <a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
+                        <a class="btn-sm btn-secondary nounderline" href="{% url 'barang:pgtPengembalian' barang.id %}">
                             Kembalikan
                         </a>
                     </td>
@@ -48,7 +48,7 @@
                         <td>{{ barang.barang }}</td>
                         <td>{{ barang.tanggal }}</td>
                         <td>
-                            <a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
+                            <a class="btn-sm btn-secondary nounderline" href="{% url 'barang:pgtPengembalian' barang.id %}">
                                 Ambil
                             </a>
                         </td>

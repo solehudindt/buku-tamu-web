@@ -5,7 +5,27 @@ textarea {
 table {
     max-height: 500px;
 }
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
   
 .noresize {
     resize: none; 
-  }
+}
+
+fa-1x {
+  font-size: 1.5rem;
+}
+
+.navbar-toggler.toggler-example {
+  cursor: pointer;
+}
+
+.nounderline {
+  text-decoration: none !important
+}
