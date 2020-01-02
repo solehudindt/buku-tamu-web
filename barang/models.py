@@ -17,13 +17,15 @@ class AdmBarang(models.Model):
                             )
     barang      = models.CharField(max_length=20)
     tanggal     = models.DateField(auto_now=False, auto_now_add=True)
-    jenis        = models.CharField(max_length=10, choices=[
-                                                    ('peminjaman', 'Peminjaman'),
-                                                    ('penitipan', 'Penitipan')
-                                                ]
+    jenis        = models.CharField(max_length=10,
+                                    choices=[
+                                        ('peminjaman', 'Peminjaman'),
+                                        ('penitipan', 'Penitipan')
+                                        ],
+                                    default='peminjaman'
                 )
-    at_camp     = models.BooleanField(default=False)
+    status     = models.BooleanField(default=False)
 
     def __str__(self):
-        return "{} - {}".format(self.nama, self.barang)
+        return "{} - {}".format(self.nama, self.jenis)
     

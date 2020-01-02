@@ -1,54 +1,64 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    barang
+    {{header}}
 {% endblock title %}
 
 {% block content %}
 <div class="row">
     <div class="col">
-    <table class="table">
-        <thead>
-        Peminjaman
-        </thead>
-        <tbody>
-        {% for barang in barangs %}
-        <tr>
-            {% if barang.at_camp == False %}
-                {% if barang.jenis == 'peminjaman' %}
-                <td>{{ barang.nama }}</td>
-                <td>{{ barang.barang }}</td>
-                <td>{{ barang.tanggal }}</td>
-                <td><a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
-                Kembalikan
-            </td>
+        <h3>
+            Peminjaman
+        </h3>
+        <div class="pre-scrollable">
+        <table class="table">
+            <tbody>
+            {% for barang in barangs %}
+            <tr>
+                {% if barang.status == False %}
+                    {% if barang.jenis == 'peminjaman' %}
+                    <td>{{ barang.nama }}</td>
+                    <td>{{ barang.barang }}</td>
+                    <td>{{ barang.tanggal }}</td>
+                    <td>
+                        <a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
+                            Kembalikan
+                        </a>
+                    </td>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </table>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
     </div>
     <div class="col">
-    <table class="table">
-        <thead>
-        Penitipan
-        </thead>
-        <tbody>
-        {% for barang in barangs %}
-        <tr>
-            {% if barang.at_camp == False %}
-                {% if barang.jenis == 'penitipan' %}
-                <td>{{ barang.nama }}</td>
-                <td>{{ barang.barang }}</td>
-                <td>{{ barang.tanggal }}</td>
-                <td><a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
-                Ambil
-            </td>
-                {% endif %}
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </table>
+        <h3>
+            Penitipan
+        </h3>
+        <div class="pre-scrollable">
+            <table class="table">
+                <tbody>
+                {% for barang in barangs %}
+                <tr>
+                    {% if barang.status == False %}
+                        {% if barang.jenis == 'penitipan' %}
+                        <td>{{ barang.nama }}</td>
+                        <td>{{ barang.barang }}</td>
+                        <td>{{ barang.tanggal }}</td>
+                        <td>
+                            <a class="btn-sm btn-warning" href="{% url 'barang:pgtPengembalian' barang.id %}">
+                                Ambil
+                            </a>
+                        </td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

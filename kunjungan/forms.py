@@ -18,8 +18,8 @@ class FormPengunjung(forms.ModelForm):
 
         widgets = {
             'nama': forms.TextInput(attrs={'class':'form-control',
-                                            'placeholder':'Masukan nama anda'}),
+                                            'placeholder':'Masukan nama lengkap anda'}),
             'angkatan': forms.Select(choices=year_choices(), attrs={'class':'form-control'}),
-            'keterangan': forms.Textarea(attrs={'class':'form-control form-control-sm',
-                                                'placeholder':'Masukan keterangan atau alasan'}),
+            'keterangan': forms.Textarea(attrs={'class':'form-control noresize',
+                                                'placeholder':'Masukan keterangan atau alasan berkunjung'}),
         }

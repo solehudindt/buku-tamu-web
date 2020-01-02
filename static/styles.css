@@ -1,0 +1,11 @@
+textarea {
+    max-height: 110px;
+  }
+
+table {
+    max-height: 500px;
+}
+  
+.noresize {
+    resize: none; 
+  }
