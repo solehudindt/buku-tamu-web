@@ -42,17 +42,19 @@
           </div>
 
       </div>
-      <button class="btn btn-info btn-block my-4" type="submit">Submit</button>
+      <button class="btn btn-secondary btn-block my-4" type="submit">Submit</button>
+
+      {% if messages %}
+        {% for message in messages %}
+          <script>
+            alert('{{ message }}');
+          </script>
+        {% endfor %}
+      {% endif %}
 
       </div>
     </form>
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-        <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+
     </div>
   </div>
 {% endblock %}

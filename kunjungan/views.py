@@ -11,11 +11,11 @@ def form_pengunjung(request):
         form = FormPengunjung(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Success')
+            messages.success(request, 'Success, Terimakasih sudah mengisi Buku Tamu')
 
             return redirect('kunjungan:index')
         else:
-            messages.error(request, 'Error')
+            messages.error(request, 'Error, Terjadi kesalahan')
     else:
         form = FormPengunjung()
 
