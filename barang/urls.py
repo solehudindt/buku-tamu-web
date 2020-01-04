@@ -7,4 +7,5 @@ urlpatterns = [
     path('', views.viewBarang, name='index'),
     path('adm_brg', views.titipPinjam, name='titipPinjam'),
     path('actionUrl/<int:barang_id>', views.pungutPengembalian, name='pgtPengembalian'),
+    path('csv', views.laporan_csv, name='laporan'),
 ]
