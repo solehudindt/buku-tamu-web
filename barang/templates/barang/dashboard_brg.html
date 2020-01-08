@@ -29,13 +29,6 @@
                 {% endif %}
             </tr>
             {% endfor %}
-                {% if messages %}
-                    {% for message in messages %}
-                    <script>
-                        alert('{{ message }}');
-                    </script>
-                    {% endfor %}
-                {% endif %}
             </tbody>
         </table>
         </div>
@@ -58,18 +51,18 @@
                             <a class="btn-sm btn-secondary nounderline" href="{% url 'barang:pgtPengembalian' barang.id %}">
                                 Ambil
                             </a>
-                            {% if messages %}
-                                {% for message in messages %}
-                                <script>
-                                    alert('{{ message }}');
-                                </script>
-                                {% endfor %}
-                            {% endif %}
                         </td>
                         {% endif %}
                     {% endif %}
                 </tr>
                 {% endfor %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <script>
+                            alert('{{ message }}');
+                        </script>
+                    {% endfor %}
+                {% endif %}
                 </tbody>
             </table>
         </div>

@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import AdmBarang
+from django.utils.encoding import smart_str
+from django.http import HttpResponse
+import csv
 # Register your models here.
 
-def export_csv(modeladmin, request, queryset):
-    import csv
-    from django.utils.encoding import smart_str
-    from django.http import HttpResponse
+queryset = AdmBarang.objects.all()
+
+def export_csv(*args, **kwargs):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=laporan_bukutamu.csv'
     writer = csv.writer(response, csv.excel)

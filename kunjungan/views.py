@@ -1,10 +1,17 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import FormPengunjung
+from .admin import Pengunjung
+from barang.admin import export_csv
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("sadklk")
+    return HttpResponse("Ok")
+
+def laporan_csv(request):
+    queryset = Pengunjung.objects.all()
+
+    return export_csv(request, queryset)
 
 def form_pengunjung(request):
     if request.method == 'POST':
